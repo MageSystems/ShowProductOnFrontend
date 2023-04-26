@@ -1,0 +1,23 @@
+{
+    "name": "magesystems/module-showproductonfrontend",
+    "description": "Show product on frontend",
+    "version": "1.0.0",
+    "type": "magento2-module",
+    "require": {
+        "php": ">=7.4"
+    },
+    "authors": [
+        {
+            "name": "MageSystems",
+            "email": "softwaremagesystems@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageSystems\\ShowProductOnFrontend\\": ""
+        }
+    }
+}

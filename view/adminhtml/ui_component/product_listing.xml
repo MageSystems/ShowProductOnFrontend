@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="product_columns">
+        <column name="form_show_on_frontend" class="MageSystems\ShowProductOnFrontend\Ui\Component\Listing\Columns\Link" component="MageSystems_ShowProductOnFrontend/js/grid/columns/link" sortOrder="999">
+            <settings>
+                <addField>true</addField>
+                <label translate="true">Show on frontend</label>
+            </settings>
+        </column>
+    </columns>
+</listing>
