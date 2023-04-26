@@ -3,6 +3,9 @@
     "description": "Show product on frontend",
     "version": "1.0.0",
     "type": "magento2-module",
+    "license": [
+        "MIT"
+    ],
     "require": {
         "php": ">=7.4"
     },
