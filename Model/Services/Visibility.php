@@ -10,7 +10,7 @@ class Visibility
 {
     protected MagentoVisibility $visibility;
 
-    public function __construct(MagentoVisibility $visibility,)
+    public function __construct(MagentoVisibility $visibility)
     {
         $this->visibility = $visibility;
     }
