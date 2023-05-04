@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MageSystems\ShowProductOnFrontend\Ui\Component\Listing\Columns;
 
 use Magento\Framework\UrlInterface;
+use MageSystems\ShowProductOnFrontend\Model\Services\Url;
 use MageSystems\ShowProductOnFrontend\Model\Services\Visibility;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -12,20 +13,20 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 
 class Link extends Column
 {
-    protected UrlInterface $urlBuilder;
     protected Visibility $visibility;
+    protected Url $urlService;
 
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        UrlInterface $urlBuilder,
+        Url $urlService,
         Visibility $visibility,
         array $components = [],
         array $data = []
     ) {
         parent::__construct($context, $uiComponentFactory, $components, $data);
-        $this->urlBuilder = $urlBuilder;
         $this->visibility = $visibility;
+        $this->urlService = $urlService;
     }
 
     public function prepareDataSource(array $dataSource): array
@@ -34,11 +35,10 @@ class Link extends Column
             $fieldName = $this->getData("name");
             foreach ($dataSource["data"]["items"] as $key => $item)  {
                 if($this->visibility->isVisibleOnFrontend((int)$item['visibility'])) {
-                    $storeId = $this->context->getFilterParam('store_id');
-                    $url = $this->urlBuilder->getUrl('catalog/product/view',
-                        ['id' => $item['entity_id'], 'store' => $storeId]);
+                    $websiteIds = $item['website_ids'] ?? [];
+                    $urls = array_unique($this->urlService->getProductUrls($websiteIds, (int)$item['entity_id']));
 
-                    $dataSource["data"]["items"][$key][$fieldName] = $url;
+                    $dataSource["data"]["items"][$key][$fieldName] = $urls;
                 }
             }
 

@@ -1,3 +1,5 @@
 <!-- ko if: $row().form_show_on_frontend -->
-<a data-bind="attr: {href: $row().form_show_on_frontend},i18n:'Show on frontend'" target="_blank"></a>
+        <!-- ko foreach: Object.keys($row().form_show_on_frontend) -->
+        <a data-bind="attr: {href: $row().form_show_on_frontend[$data]},text:$data" target="_blank"></a><br>
+        <!--/ko-->
 <!-- /ko -->
