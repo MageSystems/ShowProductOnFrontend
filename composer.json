@@ -1,7 +1,6 @@
 {
     "name": "magesystems/module-showproductonfrontend",
     "description": "Show product on frontend",
-    "version": "1.0.1",
     "type": "magento2-module",
     "license": [
         "MIT"
