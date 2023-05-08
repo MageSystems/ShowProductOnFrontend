@@ -29,6 +29,10 @@ class Link extends Column
         $this->urlService = $urlService;
     }
 
+    /**
+     * @param array $dataSource
+     * @return array
+     */
     public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource["data"]["items"])) {

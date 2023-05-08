@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MageSystems\ShowProductOnFrontend\Model\Services;
 
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Store\Model\StoreManagerInterface;
 
 class StoreResolver
@@ -16,6 +17,11 @@ class StoreResolver
         $this->storeManager = $storeManager;
     }
 
+    /**
+     * @param int $websiteId
+     * @return array|mixed
+     * @throws LocalizedException
+     */
     public function getStoreByWebsiteId(int $websiteId)
     {
         if(!isset($this->storeCache[$websiteId])) {

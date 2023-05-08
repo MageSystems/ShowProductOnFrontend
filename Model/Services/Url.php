@@ -17,6 +17,12 @@ class Url
         $this->storeResolver = $storeResolver;
     }
 
+    /**
+     * @param array $websiteIds
+     * @param int $productId
+     * @return array
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function getProductUrls(array $websiteIds, int $productId): array
     {
         $urls = [];
